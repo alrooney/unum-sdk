@@ -100,7 +100,7 @@
 // updated to reflect it during the agent (any instance) startup.
 // If it does not happen in the given time the initialization
 // proceedes anyway.
-#define STARTUP_NETWORK_WAIT_TIME 120
+#define STARTUP_NETWORK_WAIT_TIME 10
 
 // Functions returning main WAN and LAN interface names. The
 // values are static strings captured during init. I.e. if

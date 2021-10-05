@@ -36,7 +36,7 @@ char *util_main_lan_ifname(void)
 // Get base MAC file name, it's the file w/ the MAC of the main LAN interface
 char *util_base_mac_file_name(void)
 {
-    char *device = "br-lan";
+    char *device = "down1v0";
     static char fname[128] = "";
     int err;
     struct stat st;
@@ -232,7 +232,7 @@ int util_platform_init(int level)
                 break;
             }
         }
-        strncpy(lan_ifname, val, sizeof(lan_ifname) - 1);
+        strncpy(lan_ifname, "down1v0", sizeof(lan_ifname) - 1);
 
         // Get WAN interface name (used for stats and WAN IP address reporting)
         if(IS_OPM(UNUM_OPM_AP)) {
@@ -250,13 +250,15 @@ int util_platform_init(int level)
                 break;
             }
         }
-        strncpy(wan_ifname, val, sizeof(wan_ifname) - 1);
+        strncpy(wan_ifname, "up0v0", sizeof(wan_ifname) - 1);
 
         break;
     }
     uci_free_context(ctx);
-
-    return ret;
+    
+    log("%s: about to return, ret=%d\n",__func__,ret);
+    return 0;
+    //return ret;
 }
 
 // Optional platform operation mode change handler, called if the
