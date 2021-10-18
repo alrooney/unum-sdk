@@ -227,8 +227,8 @@ int wt_tpl_fill_scan_entry_info(WT_JSON_TPL_SCAN_RADIO_t *rscan,
             *(pos - 1) = 0;
         }
 
-        snprintf(encryption, sizeof(encryption),
-                 "%s %s (%s)", wpa_type, encr, cstr);
+        //snprintf(encryption, sizeof(encryption),
+        //         "%s %s (%s)", wpa_type, encr, cstr);
     }
 
     // Set the extras object template ptr
